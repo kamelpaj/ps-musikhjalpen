@@ -43,18 +43,21 @@ export default async function handler(
     offices: [
       {
         name: GBG.name,
+        image: GBG.image,
         totalAmount: gbgTotalResp.amount,
         topD: findTopD(gbgDonos),
         allDonos: gbgDonos,
       },
       {
         name: MALMO.name,
+        image: MALMO.image,
         totalAmount: malmoTotalResp.amount,
         topD: findTopD(malmoDonos),
         allDonos: malmoDonos,
       },
       {
         name: STHLM.name,
+        image: STHLM.image,
         totalAmount: sthlmTotalResp.amount,
         topD: findTopD(sthlmDonos),
         allDonos: sthlmDonos,
