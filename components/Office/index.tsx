@@ -1,9 +1,21 @@
+import { useState } from "react";
 import { OfficeData } from "../../types";
+import Modal from "../Modal";
 
 export default function Office(props: {
   officeData: OfficeData;
   image: string;
 }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
   return (
     <div className="w-full max-w-sm bg-white rounded-lg shadow-md dark:bg-emerald-800 dark:border-emerald-700 border border-emerald-200">
       <img
@@ -24,10 +36,11 @@ export default function Office(props: {
           </span>
           <button
             className="text-white bg-emerald-700 hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-emerald-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-emerald-600 dark:hover:bg-emerald-700 dark:focus:ring-emerald-800"
-            onClick={() => alert("Coming soon :)")}
+            onClick={openModal}
           >
-            See all donators
+            See all donations
           </button>
+          <Modal isOpen={isOpen} closeModal={closeModal} officeName={props.officeData.name} donations={props.officeData.allDonos} />
         </div>
 
         <div className="pt-2">
