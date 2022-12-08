@@ -24,11 +24,9 @@ export default function Office(props: {
         alt="product image"
       />
       <div className="px-5 pb-5">
-        <a href="#">
-          <h5 className="text-xl font-semibold tracking-tight  dark:text-white">
-            {props.officeData.name}
-          </h5>
-        </a>
+        <h5 className="text-xl font-semibold tracking-tight  dark:text-white">
+          {props.officeData.name}
+        </h5>
 
         <div className="flex items-center justify-between">
           <span className="text-3xl font-bold  dark:text-white">
@@ -40,7 +38,12 @@ export default function Office(props: {
           >
             See all donations
           </button>
-          <Modal isOpen={isOpen} closeModal={closeModal} officeName={props.officeData.name} donations={props.officeData.allDonos} />
+          <Modal
+            isOpen={isOpen}
+            closeModal={closeModal}
+            officeName={props.officeData.name}
+            donations={props.officeData.allDonos}
+          />
         </div>
 
         <div className="pt-2">
