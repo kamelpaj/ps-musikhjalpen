@@ -10,7 +10,7 @@ import { findTopD } from "../../utils";
 
 export type Data = {
   totalAmount: number;
-  topD: Donation;
+  topD: Donation | null;
   offices: OfficeData[];
 };
 
