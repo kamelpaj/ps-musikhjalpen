@@ -7,6 +7,8 @@ const fetcher = (url: string) => fetch(url).then((res) => res.json());
 export default function Home() {
   const { data, error } = useSWR<Data>("/api/data", fetcher);
 
+  if (error) return <p>whoops something broke</p>;
+
   return (
     <div>
       <Head>
@@ -19,8 +21,8 @@ export default function Home() {
         <h1 className="text-3xl font-bold underline">PS ♥️ Musikhjälpen</h1>
         <p>Total amount: {data?.totalAmount}</p>
         <p>
-          Top donator: {data?.topD.name} who donated {data?.topD.amount} (
-          {data?.topD.message}){" "}
+          Top donator: {data?.topD?.name} who donated {data?.topD?.amount} (
+          {data?.topD?.message}){" "}
         </p>
 
         {data?.offices.map((office) => (
