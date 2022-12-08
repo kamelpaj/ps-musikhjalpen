@@ -6,7 +6,11 @@ export default function Office(props: {
 }) {
   return (
     <div className="w-full max-w-sm bg-white rounded-lg shadow-md dark:bg-emerald-800 dark:border-emerald-700 border border-emerald-200">
-      <img className="p-8 rounded-t-lg object-contain" src={props.image} alt="product image" />
+      <img
+        className="p-8 rounded-t-lg object-contain"
+        src={props.image}
+        alt="product image"
+      />
       <div className="px-5 pb-5">
         <a href="#">
           <h5 className="text-xl font-semibold tracking-tight  dark:text-white">
@@ -27,10 +31,12 @@ export default function Office(props: {
         </div>
 
         <div className="pt-2">
-          <p className="text-l font-bold  dark:text-white">
-            Top donator: {props.officeData.topD?.name},{" "}
-            {props.officeData.topD?.amount} SEK
-          </p>
+          {props.officeData.topD && (
+            <p className="text-l font-bold  dark:text-white">
+              Top donator: {props.officeData.topD?.name},{" "}
+              {props.officeData.topD?.amount} SEK
+            </p>
+          )}
           <p className="text-s font-normal text-slate-200">
             {props.officeData.topD?.message}
           </p>
