@@ -2,6 +2,7 @@ import Head from "next/head";
 import useSWR from "swr";
 import Card from "../components/Card";
 import Office from "../components/Office";
+import Spinner from "../components/Spinner";
 import { GBG } from "../constants/offices";
 import { Data } from "./api/data";
 
@@ -11,6 +12,12 @@ export default function Home() {
   const { data, error } = useSWR<Data>("/api/data", fetcher);
 
   if (error) return <p>whoops something broke</p>;
+  if (!data)
+    return (
+      <main className="w-screen h-screen mt-20">
+        <Spinner />
+      </main>
+    );
 
   return (
     <div>
