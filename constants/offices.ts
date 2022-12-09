@@ -1,20 +1,28 @@
-export enum GBG {
-  name = "Göteborg",
-  image = "gbg.webp",
-  TOTAL_URL = "https://bossan.musikhjalpen.se/server/fundraisers/5J8GD3ASiYy7qrKV85DzSA?fields[]=amount",
-  DONOS_URL = "https://bossan.musikhjalpen.se/server/fundraisers/donations/5J8GD3ASiYy7qrKV85DzSA/0",
-}
+const MH_BASE_URL = "https://bossan.musikhjalpen.se/server/fundraisers";
+const GBG_ID = "5J8GD3ASiYy7qrKV85DzSA";
+const MALMO_ID = "5hhWgafXRS5d7M1OptWB7E";
+const STHLM_ID = "7twg5rmk1nZnnIZBJVeO6B";
 
-export enum MALMO {
-  name = "Malmö",
-  image = "malmo.jpeg",
-  TOTAL_URL = "https://bossan.musikhjalpen.se/server/fundraisers/5hhWgafXRS5d7M1OptWB7E?fields[]=amount",
-  DONOS_URL = "https://bossan.musikhjalpen.se/server/fundraisers/donations/5hhWgafXRS5d7M1OptWB7E/0",
-}
+export const GBG = {
+  name: "Göteborg",
+  image: "gbg.webp",
+  TOTAL_URL: `${MH_BASE_URL}/${GBG_ID}?fields[]=amount`,
+  DONOS_URL: `${MH_BASE_URL}/donations/${GBG_ID}`,
+  NUM_OF_DONOS_URL: `${MH_BASE_URL}/donations/${GBG_ID}/number-of-donations`,
+};
 
-export enum STHLM {
-  name = "Stockholm",
-  image = "sthlm.webp",
-  TOTAL_URL = "https://bossan.musikhjalpen.se/server/fundraisers/7twg5rmk1nZnnIZBJVeO6B?fields[]=amount",
-  DONOS_URL = "https://bossan.musikhjalpen.se/server/fundraisers/donations/7twg5rmk1nZnnIZBJVeO6B/0",
-}
+export const MALMO = {
+  name: "Malmö",
+  image: "malmo.jpeg",
+  TOTAL_URL: `${MH_BASE_URL}/${MALMO_ID}?fields[]=amount`,
+  DONOS_URL: `${MH_BASE_URL}/donations/${MALMO_ID}`,
+  NUM_OF_DONOS_URL: `${MH_BASE_URL}/donations/${MALMO_ID}/number-of-donations`,
+};
+
+export const STHLM = {
+  name: "Stockholm",
+  image: "sthlm.webp",
+  TOTAL_URL: `${MH_BASE_URL}/${STHLM_ID}?fields[]=amount`,
+  DONOS_URL: `${MH_BASE_URL}/donations/${STHLM_ID}`,
+  NUM_OF_DONOS_URL: `${MH_BASE_URL}/donations/${STHLM_ID}/number-of-donations`,
+};

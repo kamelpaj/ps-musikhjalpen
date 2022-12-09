@@ -49,7 +49,7 @@ export default function Office(props: {
         <div className="pt-2">
           {props.officeData.topD && (
             <p className="text-l font-bold">
-              Top donator: {props.officeData.topD?.name},{" "}
+              Top donator: {props.officeData?.topD?.name ? props.officeData?.topD?.name : 'Anonymous'},{" "}
               {props.officeData.topD?.amount} SEK
             </p>
           )}

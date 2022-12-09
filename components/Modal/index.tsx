@@ -72,23 +72,21 @@ export default function Modal(props: {
                   >
                     {props.donations.map((dono) => (
                       <>
-                        {dono.public && (
-                          <li className="p-3 sm:py-4 hover:bg-emerald-200 rounded-lg">
-                            <div className="flex items-center space-x-2">
-                              <div className="flex-1 min-w-0">
-                                <p className="text-sm font-bold text-gray-900 truncate">
-                                  {dono.name}
-                                </p>
-                                <p className="text-sm text-gray-500 truncate dark:text-gray-600 break-words">
-                                  {dono.message}
-                                </p>
-                              </div>
-                              <div className="inline-flex items-center text-base font-semibold text-gray-900">
-                                {dono.amount} SEK
-                              </div>
+                        <li className="p-3 sm:py-4 hover:bg-emerald-200 rounded-lg">
+                          <div className="flex items-center space-x-2">
+                            <div className="flex-1 min-w-0">
+                              <p className="text-sm font-bold text-gray-900 truncate">
+                                {dono.name ? dono.name : 'Anonymous'}
+                              </p>
+                              <p className="text-sm text-gray-500 truncate dark:text-gray-600 break-words">
+                                {dono.message}
+                              </p>
                             </div>
-                          </li>
-                        )}
+                            <div className="inline-flex items-center text-base font-semibold text-gray-900">
+                              {dono.amount} SEK
+                            </div>
+                          </div>
+                        </li>
                       </>
                     ))}
                   </ul>

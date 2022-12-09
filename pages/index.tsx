@@ -39,8 +39,8 @@ export default function Home() {
             message={"Ska vi ha någon fin text här?"}
           />
           <Card
-            title={`Top donator: ${data?.topD?.name}`}
-            message={`${data?.topD?.amount} SEK - ${data?.topD?.message}`}
+            title={`Top donator: ${data?.topD?.name ? data?.topD?.name : 'Anonymous'}`}
+            message={`${data?.topD?.amount} SEK ${data?.topD?.message ? `- ${data?.topD?.message}` : ''}`}
           />
         </section>
 

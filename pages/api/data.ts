@@ -31,14 +31,31 @@ export default async function handler(
     await (await fetch(STHLM.TOTAL_URL)).json()
   );
 
+  // Fetch number of donations
+  const gbgNumOfDonos: number = await (
+    await fetch(GBG.NUM_OF_DONOS_URL)
+  ).json();
+  const malmoNumOfDonos: number = await (
+    await fetch(MALMO.NUM_OF_DONOS_URL)
+  ).json();
+  const sthlmNumOfDonos: number = await (
+    await fetch(STHLM.NUM_OF_DONOS_URL)
+  ).json();
+
+  // console.log(gbgNumOfDonos, malmoNumOfDonos, sthlmNumOfDonos);
+
   // Fetch donator lists from Musikhjälpen
-  const gbgDonos = <DonatorsResponse>await (await fetch(GBG.DONOS_URL)).json();
+  const gbgDonos = <DonatorsResponse>(
+    await (await fetch(`${GBG.DONOS_URL}/0`)).json()
+  );
   const malmoDonos = <DonatorsResponse>(
-    await (await fetch(MALMO.DONOS_URL)).json()
+    await (await fetch(`${MALMO.DONOS_URL}/0`)).json()
   );
   const sthlmDonos = <DonatorsResponse>(
-    await (await fetch(STHLM.DONOS_URL)).json()
+    await (await fetch(`${STHLM.DONOS_URL}/0`)).json()
   );
+
+  const allLatestDonos = [...gbgDonos, ...malmoDonos, ...sthlmDonos];
 
   const data: Data = {
     totalAmount:
