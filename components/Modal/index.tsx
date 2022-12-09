@@ -61,9 +61,6 @@ export default function Modal(props: {
                     <span className="sr-only">Close modal</span>
                   </button>
                 </Dialog.Title>
-                <Dialog.Description as="h5" className="text-gray-400">
-                  * only public donations
-                </Dialog.Description>
 
                 <div className="mt-2">
                   <ul
@@ -76,7 +73,7 @@ export default function Modal(props: {
                           <div className="flex items-center space-x-2">
                             <div className="flex-1 min-w-0">
                               <p className="text-sm font-bold text-gray-900 truncate">
-                                {dono.name ? dono.name : 'Anonymous'}
+                                {dono.name ? dono.name : "Anonymous"}
                               </p>
                               <p className="text-sm text-gray-500 truncate dark:text-gray-600 break-words">
                                 {dono.message}
