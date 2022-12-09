@@ -41,31 +41,29 @@ export default function Modal(props: {
                 >
                   <h2> {props.officeName} donations </h2>
                   <button
-                  type="button"
-                  className="text-emerald-800 bg-transparent hover:bg-emerald-200 hover:text-emerald-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-emerald-600 dark:hover:text-white"
-                  onClick={props.closeModal}
-                >
-                  <svg
-                    aria-hidden="true"
-                    className="w-5 h-5"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
+                    type="button"
+                    className="text-emerald-800 bg-transparent hover:bg-emerald-200 hover:text-emerald-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-emerald-600 dark:hover:text-white"
+                    onClick={props.closeModal}
                   >
-                    <path
-                      fill-rule="evenodd"
-                      d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span className="sr-only">Close modal</span>
-                </button>
+                    <svg
+                      aria-hidden="true"
+                      className="w-5 h-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                    <span className="sr-only">Close modal</span>
+                  </button>
                 </Dialog.Title>
                 <Dialog.Description as="h5" className="text-gray-400">
                   * only public donations
-                
                 </Dialog.Description>
-                
 
                 <div className="mt-2">
                   <ul
@@ -81,7 +79,7 @@ export default function Modal(props: {
                                 <p className="text-sm font-bold text-gray-900 truncate">
                                   {dono.name}
                                 </p>
-                                <p className="text-sm text-gray-500 truncate dark:text-gray-600">
+                                <p className="text-sm text-gray-500 truncate dark:text-gray-600 break-words">
                                   {dono.message}
                                 </p>
                               </div>
@@ -95,16 +93,6 @@ export default function Modal(props: {
                     ))}
                   </ul>
                 </div>
-
-                {/* <div className="mt-4">
-                  <button
-                    type="button"
-                    className="inline-flex justify-center rounded-md border border-transparent bg-emerald-100 px-4 py-2 text-sm font-medium text-emerald-900 hover:bg-emerald-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2"
-                    onClick={props.closeModal}
-                  >
-                    Close
-                  </button>
-                </div> */}
               </Dialog.Panel>
             </Transition.Child>
           </div>
