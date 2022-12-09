@@ -36,7 +36,7 @@ export default function Home() {
         <section className="p-2 flex flex-col lg:flex-row justify-center gap-2">
           <Card
             title={`Total: ${data?.totalAmount} SEK`}
-            message={"Ska vi ha någon fin text här?"}
+            message={"💰FOR THE KIDZ💰"}
           />
           <Card
             title={`Top donator: ${data?.topD?.name ? data?.topD?.name : 'Anonymous'}`}
