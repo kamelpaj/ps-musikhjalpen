@@ -15,7 +15,7 @@ export type Data = {
 };
 
 export const config = {
-  runtime: "experimental-edge",
+  regions: ["arn1"],
 };
 
 export default async function handler(
