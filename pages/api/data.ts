@@ -42,21 +42,45 @@ export default async function handler(
     await fetch(STHLM.NUM_OF_DONOS_URL)
   ).json();
 
-  // console.log(gbgNumOfDonos, malmoNumOfDonos, sthlmNumOfDonos);
+  // Calculate number of paginations available
+  const gbgNumOfPags = Math.trunc(gbgNumOfDonos / 5);
+  const malmoNumOfPags = Math.trunc(malmoNumOfDonos / 5);
+  const sthlmNumOfPags = Math.trunc(sthlmNumOfDonos / 5);
 
-  // Fetch donator lists from Musikhjälpen
-  const gbgDonos = <DonatorsResponse>(
+  // Fetch initial donator lists from Musikhjälpen
+  let gbgDonos = <DonatorsResponse>(
     await (await fetch(`${GBG.DONOS_URL}/0`)).json()
   );
-  const malmoDonos = <DonatorsResponse>(
+  let malmoDonos = <DonatorsResponse>(
     await (await fetch(`${MALMO.DONOS_URL}/0`)).json()
   );
-  const sthlmDonos = <DonatorsResponse>(
+  let sthlmDonos = <DonatorsResponse>(
     await (await fetch(`${STHLM.DONOS_URL}/0`)).json()
   );
 
-  const allLatestDonos = [...gbgDonos, ...malmoDonos, ...sthlmDonos];
+  // Fetch extra paginations
+  for (let i = 0; i < gbgNumOfPags; i++) {
+    gbgDonos = [
+      ...gbgDonos,
+      ...(await (await fetch(`${GBG.DONOS_URL}/${i + 5}`)).json()),
+    ];
+  }
 
+  for (let i = 0; i < malmoNumOfPags; i++) {
+    malmoDonos = [
+      ...malmoDonos,
+      ...(await (await fetch(`${MALMO.DONOS_URL}/${i + 5}`)).json()),
+    ];
+  }
+
+  for (let i = 0; i < sthlmNumOfPags; i++) {
+    sthlmDonos = [
+      ...sthlmDonos,
+      ...(await (await fetch(`${STHLM.DONOS_URL}/${i + 5}`)).json()),
+    ];
+  }
+
+  // Build response object
   const data: Data = {
     totalAmount:
       gbgTotalResp.amount + malmoTotalResp.amount + sthlmTotalResp.amount,
