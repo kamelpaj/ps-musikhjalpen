@@ -44,9 +44,16 @@ export default function Office(props: {
           >
             See all donations ({props.officeData.allDonos.length})
           </button>
+
           <button>
             <span className="font-bold bg-rose-700 hover:bg-rose-600 focus:ring-4 focus:outline-none focus:ring-rose-300 rounded-lg text-sm px-5 py-2.5 text-center">
-              <a href={props.officeData.donoUrl} target="_blank" rel="noreferrer"> DONATE </a>
+              <a
+                href={props.officeData.donoUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                DONATE
+              </a>
             </span>
           </button>
         </div>
