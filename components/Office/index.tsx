@@ -33,22 +33,22 @@ export default function Office(props: {
           {props.officeData.name}
         </h5>
 
-        <div className="flex items-center justify-between">
-          <span className="text-3xl font-bold">
-            {props.officeData.totalAmount} SEK
-          </span>
+        <h3 className="text-3xl font-bold">
+          {props.officeData.totalAmount} SEK
+        </h3>
+
+        <div className="flex justify-between pt-2">
           <button
             className="bg-emerald-700 hover:bg-emerald-600 focus:ring-4 focus:outline-none focus:ring-emerald-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
             onClick={openModal}
           >
             See all donations ({props.officeData.allDonos.length})
           </button>
-          <Modal
-            isOpen={isOpen}
-            closeModal={closeModal}
-            officeName={props.officeData.name}
-            donations={props.officeData.allDonos}
-          />
+          <button>
+            <span className="font-bold bg-rose-700 hover:bg-rose-600 focus:ring-4 focus:outline-none focus:ring-rose-300 rounded-lg text-sm px-5 py-2.5 text-center">
+              <a href={props.officeData.donoUrl} target="_blank" rel="noreferrer"> DONATE </a>
+            </span>
+          </button>
         </div>
 
         <div className="pt-2">
@@ -71,6 +71,12 @@ export default function Office(props: {
           </p>
         </div>
       </div>
+      <Modal
+        isOpen={isOpen}
+        closeModal={closeModal}
+        officeName={props.officeData.name}
+        donations={props.officeData.allDonos}
+      />
     </div>
   );
 }

@@ -89,6 +89,7 @@ export default async function handler(
       {
         name: GBG.name,
         image: GBG.image,
+        donoUrl: GBG.MH_PAGE_URL,
         totalAmount: gbgTotalResp.amount,
         topD: findTopD(gbgDonos),
         allDonos: gbgDonos,
@@ -96,6 +97,7 @@ export default async function handler(
       {
         name: MALMO.name,
         image: MALMO.image,
+        donoUrl: MALMO.MH_PAGE_URL,
         totalAmount: malmoTotalResp.amount,
         topD: findTopD(malmoDonos),
         allDonos: malmoDonos,
@@ -103,6 +105,7 @@ export default async function handler(
       {
         name: STHLM.name,
         image: STHLM.image,
+        donoUrl: STHLM.MH_PAGE_URL,
         totalAmount: sthlmTotalResp.amount,
         topD: findTopD(sthlmDonos),
         allDonos: sthlmDonos,

@@ -17,6 +17,7 @@ export type DonatorsResponse = Array<Donation>;
 export type OfficeData = {
   name: string;
   image: string;
+  donoUrl: string;
   totalAmount: number;
   topD: Donation | null;
   allDonos: Donation[];
