@@ -31,7 +31,7 @@ export default function Home() {
 
       <main className="p-4">
         <h1 className="text-4xl lg:text-6xl font-bold text-center pb-4">
-          PS ❤️ Musikhjälpen
+          PS <span className="animate-pulse"> ❤️ </span> Musikhjälpen
         </h1>
         <section className="p-2 flex flex-col lg:flex-row justify-center gap-2">
           <Card
@@ -46,9 +46,9 @@ export default function Home() {
 
         <section className="p-2 flex flex-col lg:flex-row justify-center gap-2">
           {data?.offices.map((office) => (
-            <>
+            <article key={office.name}>
               <Office officeData={office} image={office.image} />
-            </>
+            </article>
           ))}
         </section>
       </main>

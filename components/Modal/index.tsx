@@ -8,7 +8,6 @@ export default function Modal(props: {
   officeName: string;
   donations: Donation[];
 }) {
-  console.log(props.donations)
   return (
     <Transition appear show={props.isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={props.closeModal}>
@@ -68,24 +67,25 @@ export default function Modal(props: {
                     role="list"
                     className="divide-y divide-gray-200 dark:divide-gray-700"
                   >
-                    {props.donations.map((dono) => (
-                      <>
-                        <li className="p-3 sm:py-4 hover:bg-emerald-200 rounded-lg">
-                          <div className="flex items-center space-x-2">
-                            <div className="flex-1 min-w-0">
-                              <p className="text-sm font-bold text-gray-900 truncate">
-                                {dono.name ? dono.name : "Anonymous"}
-                              </p>
-                              <p className="text-sm text-gray-500 truncate dark:text-gray-600 break-words">
-                                {dono.message}
-                              </p>
-                            </div>
-                            <div className="inline-flex items-center text-base font-semibold text-gray-900">
-                              {dono.amount} SEK
-                            </div>
+                    {props.donations.map((dono, i) => (
+                      <li
+                        key={i}
+                        className="p-3 sm:py-4 hover:bg-emerald-200 rounded-lg"
+                      >
+                        <div className="flex items-center space-x-2">
+                          <div className="flex-1 min-w-0">
+                            <p className="text-sm font-bold text-gray-900 truncate">
+                              {dono.name ? dono.name : "Anonymous"}
+                            </p>
+                            <p className="text-sm text-gray-500 truncate dark:text-gray-600 break-words">
+                              {dono.message}
+                            </p>
                           </div>
-                        </li>
-                      </>
+                          <div className="inline-flex items-center text-base font-semibold text-gray-900">
+                            {dono.amount} SEK
+                          </div>
+                        </div>
+                      </li>
                     ))}
                   </ul>
                 </div>

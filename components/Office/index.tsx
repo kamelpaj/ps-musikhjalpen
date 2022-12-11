@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useState } from "react";
 import { OfficeData } from "../../types";
 import Modal from "../Modal";
@@ -17,12 +18,16 @@ export default function Office(props: {
   }
 
   return (
-    <div className="w-full max-w-sm rounded-lg shadow-md bg-emerald-800 border-emerald-700 border ">
-      <img
-        className="p-8 rounded-t-lg object-contain"
-        src={props.image}
-        alt="product image"
+    <div className="w-full h-fit max-w-sm rounded-lg shadow-md bg-emerald-800 border-emerald-700 border">
+      <Image
+        priority
+        className="pb-4 rounded-t-lg object-cover h-36 grayscale-[50%] hover:grayscale-0 transition ease-in-out duration-300"
+        src={"/" + props.image}
+        alt="city image"
+        width={400}
+        height={400}
       />
+
       <div className="px-5 pb-5">
         <h5 className="text-xl font-semibold tracking-tight">
           {props.officeData.name}
@@ -48,13 +53,21 @@ export default function Office(props: {
 
         <div className="pt-2">
           {props.officeData.topD && (
-            <p className="text-l font-bold">
-              Top donator: {props.officeData?.topD?.name ? props.officeData?.topD?.name : 'Anonymous'},{" "}
-              {props.officeData.topD?.amount} SEK
+            <p className="text-l">
+              Top donator:{" "}
+              {props.officeData?.topD?.name
+                ? props.officeData?.topD?.name
+                : "Anonymous"}
+              , {props.officeData.topD?.amount} SEK
             </p>
           )}
-          <p className="text-s font-normal text-slate-200">
-            {props.officeData.topD?.message}
+          <p>
+            {" "}
+            Latest donator:{" "}
+            {props.officeData.allDonos[0].name
+              ? props.officeData.allDonos[0].name
+              : "Anonymous"}
+            , {props.officeData.allDonos[0].amount} SEK{" "}
           </p>
         </div>
       </div>
