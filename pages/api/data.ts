@@ -59,24 +59,24 @@ export default async function handler(
   );
 
   // Fetch extra paginations
-  for (let i = 0; i < gbgNumOfPags; i++) {
+  for (let i = 1; i <= gbgNumOfPags; i++) {
     gbgDonos = [
       ...gbgDonos,
-      ...(await (await fetch(`${GBG.DONOS_URL}/${i + 5}`)).json()),
+      ...(await (await fetch(`${GBG.DONOS_URL}/${i * 5}`)).json()),
     ];
   }
 
-  for (let i = 0; i < malmoNumOfPags; i++) {
+  for (let i = 1; i <= malmoNumOfPags; i++) {
     malmoDonos = [
       ...malmoDonos,
-      ...(await (await fetch(`${MALMO.DONOS_URL}/${i + 5}`)).json()),
+      ...(await (await fetch(`${MALMO.DONOS_URL}/${i * 5}`)).json()),
     ];
   }
 
-  for (let i = 0; i < sthlmNumOfPags; i++) {
+  for (let i = 1; i <= sthlmNumOfPags; i++) {
     sthlmDonos = [
       ...sthlmDonos,
-      ...(await (await fetch(`${STHLM.DONOS_URL}/${i + 5}`)).json()),
+      ...(await (await fetch(`${STHLM.DONOS_URL}/${i * 5}`)).json()),
     ];
   }
 
