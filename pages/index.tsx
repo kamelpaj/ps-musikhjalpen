@@ -2,8 +2,8 @@ import Head from "next/head";
 import useSWR from "swr";
 import Card from "../components/Card";
 import Office from "../components/Office";
+import Progress from "../components/Progress";
 import Spinner from "../components/Spinner";
-import { GBG } from "../constants/offices";
 import { Data } from "./api/data";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
@@ -48,6 +48,19 @@ export default function Home() {
               data?.topD?.message ? `- ${data?.topD?.message}` : ""
             }`}
           />
+        </section>
+
+        <section className="p-2 m-auto lg:w-1/2 flex flex-col justify-center gap-2">
+          <div className="block p-6 border rounded-lg shadow-md bg-emerald-800 border-emerald-700 text-center">
+          <h5 className="mb-2 text-2xl font-bold tracking-tight">ROAD TO 10K</h5>
+            {data.offices.map((office, i) => (
+              <Progress
+                key={i}
+                value={(office.totalAmount / 10000) * 100}
+                name={office.name}
+              />
+            ))}
+          </div>
         </section>
 
         <section className="p-2 flex flex-col lg:flex-row justify-center gap-2">
