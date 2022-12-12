@@ -9,7 +9,9 @@ import { Data } from "./api/data";
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export default function Home() {
-  const { data, error } = useSWR<Data>("/api/data", fetcher);
+  const { data, error } = useSWR<Data>("/api/data", fetcher, {
+    refreshInterval: 10000,
+  });
 
   if (error) return <p>whoops something broke</p>;
   if (!data)
@@ -39,8 +41,12 @@ export default function Home() {
             message={"💰FOR THE KIDZ💰"}
           />
           <Card
-            title={`Top donator: ${data?.topD?.name ? data?.topD?.name : 'Anonymous'}`}
-            message={`${data?.topD?.amount} SEK ${data?.topD?.message ? `- ${data?.topD?.message}` : ''}`}
+            title={`Top donator: ${
+              data?.topD?.name ? data?.topD?.name : "Anonymous"
+            }`}
+            message={`${data?.topD?.amount} SEK ${
+              data?.topD?.message ? `- ${data?.topD?.message}` : ""
+            }`}
           />
         </section>
 
