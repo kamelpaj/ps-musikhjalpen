@@ -82,7 +82,7 @@ export default function Modal(props: {
                             </p>
                           </div>
                           <div className="inline-flex items-center text-base font-semibold text-gray-900">
-                            {dono.amount} SEK
+                            {dono.hidden_amount ? '???' :  dono.amount} SEK
                           </div>
                         </div>
                       </li>
