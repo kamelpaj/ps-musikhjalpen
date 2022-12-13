@@ -6,7 +6,7 @@ export default function Progress(props: { name: string; value: number }) {
       </div>
       <div className="mb-4 w-full h-4 bg-gray-200 rounded-full">
         <div
-          className="h-4 bg-emerald-600 rounded-full"
+          className="h-4 bg-rose-600 rounded-full"
           style={{ width: `${props.value}%` }}
         ></div>
       </div>
