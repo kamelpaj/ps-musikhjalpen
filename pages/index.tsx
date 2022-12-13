@@ -52,7 +52,9 @@ export default function Home() {
 
         <section className="p-2 m-auto lg:w-1/2 flex flex-col justify-center gap-2">
           <div className="block p-6 border rounded-lg shadow-md bg-emerald-800 border-emerald-700 text-center">
-          <h5 className="mb-2 text-2xl font-bold tracking-tight">RACE TO 10K</h5>
+            <h5 className="mb-2 text-2xl font-bold tracking-tight">
+              RACE TO 10K
+            </h5>
             {data.offices.map((office, i) => (
               <Progress
                 key={i}
